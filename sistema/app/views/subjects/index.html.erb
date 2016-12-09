@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <p id="notice"><%= notice %></p>        
+            <div class="col-lg-12">
+                <h1>Materias</h1>                
+                <div class="card">
+                    <div class="card-header">
+                        <%= link_to 'Nueva Materia', new_subject_path, class: "btn btn-primary" %>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Materia</th>  
+                                    <th>Grado</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% count = 0 %>
+                                <% @subjects.each do |subject| %>
+                                <tr>
+                                    <td><%= count += 1%></td>
+                                    <td><%= subject.nombre %></td>
+                                    <td><%= Grade.find(subject.grade_id).grado %></td>                                                                   
+                                    <td><%= link_to subject do %>
+                                        <button class="btn btn-success"><i class=" fa fa-check"></i></button>
+                                        <% end %>
+                                    </td>
+                                    <td><%= link_to edit_subject_path(subject) do %>
+                                        <button class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                                        <% end %>
+                                    </td>
+                                    <td><%= link_to subject, method: :delete, data: { confirm: '¿Estas seguro?' } do %>
+                                        <button class="btn btn-danger"><i class="fa fa-trash-o "></i></button>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

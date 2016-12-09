@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grupo: MyString
+  grade: one
+  period: one
+
+two:
+  grupo: MyString
+  grade: two
+  period: two

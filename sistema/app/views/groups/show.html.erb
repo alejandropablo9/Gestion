@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Grupo:</strong>
+  <%= @group.grupo %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @group.grade %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @group.period %>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Matricula</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @students.each do |student| %>
+            <tr>
+                <td><%= student.matricula %></td>
+                <td><%= student.nombre %></td>
+                <td><%= student.apellido_paterno %></td>
+                <td><%= student.apellido_materno %></td>                                
+                <td><%= link_to student do %>
+                    <button class="btn btn-success"><i class=" fa fa-check"></i></button>
+                    <% end %>
+                </td>
+                <td><%= link_to edit_student_path(student) do %>
+                    <button class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                    <% end %>
+                </td>
+                <td><%= link_to student, method: :delete, data: { confirm: '¿Estas seguro?' } do %>
+                    <button class="btn btn-danger"><i class="fa fa-trash-o "></i></button>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+</table>

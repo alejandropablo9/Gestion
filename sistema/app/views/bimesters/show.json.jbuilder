@@ -1,0 +1,1 @@
+json.partial! "bimesters/bimester", bimester: @bimester

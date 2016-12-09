@@ -1,0 +1,35 @@
+<%= form_for(grade) do |f| %>
+  <% if grade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grade.errors.count, "error") %> prohibited this grade from being saved:</h2>
+
+      <ul>
+      <% grade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-sm-6">
+  <div class="field">
+      <div class="card">
+          <div class="card-header">
+              <strong>Grado</strong>
+              <small>Formulario</small>
+          </div>
+          <div class="card-block">
+               <div class="form-group">
+                   <label>Grado*</label>
+                   <%= f.text_field :grado, class: "form-control", placeholder: "Grado°" %>
+              </div>
+              <div class="card-footer">
+                    <%= f.submit 'Guardar', class: "btn btn-sm btn-primary" %>
+                    <%= link_to 'Cancelar', grades_path, class: "btn btn-sm btn-danger" %>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+<% end %>
+

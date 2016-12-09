@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mame</title>    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="navbar-fixed sidebar-nav fixed-nav">
+    <%= render partial: 'shared/headbar', locals: { headbar: @shared } %>
+    <%= render partial: 'shared/navbar', locals: { navbar: @shared } %>
+    <main class="main">
+        <div class="container-fluid">
+            <%= yield %>
+        </div>
+    </main>
+    <%= render partial: 'shared/footer', locals: { footer: @shared } %>
+  </body>
+</html>

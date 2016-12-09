@@ -1,0 +1,38 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">                
+                <%= link_to root_path, class: "nav-link" do%>
+                <i class="icon-home icons font-2xl m-t-2"></i> Home
+                <%end%>
+            </li>
+            <% if user_signed_in? %>
+                <li class="nav-item">                
+                    <%= link_to students_path, class: "nav-link" do%>
+                    <i class="icon-graduation icons font-2xl m-t-2"></i> Alumnos
+                    <%end%>
+                </li>
+                <li class="nav-item">                
+                    <%= link_to subjects_path, class: "nav-link" do%>
+                    <i class="icon-notebook icons font-2xl m-t-2"></i> Materias
+                    <%end%>
+                </li>
+                <li class="nav-item">                
+                    <%= link_to groups_path, class: "nav-link" do%>
+                    <i class="icon-list icons font-2xl m-t-2"></i> Grupos
+                    <%end%>
+                </li>
+                <li class="nav-item">                
+                    <%= link_to grades_path, class: "nav-link" do%>
+                    <i class="icon-puzzle icons font-2xl m-t-2"></i> Grados
+                    <%end%>
+                </li>
+                <li class="nav-item">                
+                    <%= link_to periods_path, class: "nav-link" do%>
+                    <i class="icon-clock icons font-2xl m-t-2"></i> Periodos
+                    <%end%>
+                </li>
+            <%end%>
+        </ul>
+    </nav>
+</div>

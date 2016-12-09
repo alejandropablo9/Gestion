@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bimestre:</strong>
+  <%= @bimester.bimestre %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @bimester.period %>
+</p>
+
+<%= link_to 'Edit', edit_bimester_path(@bimester) %> |
+<%= link_to 'Back', bimesters_path %>

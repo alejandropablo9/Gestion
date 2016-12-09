@@ -1,0 +1,51 @@
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <p id="notice"><%= notice %></p>        
+            <div class="col-lg-12">
+                <h1>Grados</h1>                
+                <div class="card">
+                    <div class="card-header">
+                        <%= link_to 'Nuevo Grado', new_grade_path, class: "btn btn-primary" %>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Grado</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% count = 0 %>
+                                <% @grades.each do |grade| %>
+                                <tr>
+                                    <td><%= count += 1%></td>
+                                    <td><%= grade.grado %></td>                                                                    
+                                    <td><%= link_to grade do %>
+                                        <button class="btn btn-success"><i class=" fa fa-check"></i></button>
+                                        <% end %>
+                                    </td>
+                                    <td><%= link_to edit_grade_path(grade) do %>
+                                        <button class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                                        <% end %>
+                                    </td>
+                                    <td><%= link_to grade, method: :delete, data: { confirm: '¿Estas seguro?' } do %>
+                                        <button class="btn btn-danger"><i class="fa fa-trash-o "></i></button>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

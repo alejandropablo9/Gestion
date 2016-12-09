@@ -1,0 +1,1 @@
+json.array! @bimesters, partial: 'bimesters/bimester', as: :bimester
