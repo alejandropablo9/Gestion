@@ -8,5 +8,5 @@ rails g scaffold Student matricula nombre apellido_paterno apellido_materno nomb
 rails g scaffold Bimester bimestre period:references
 rails g scaffold Score calificacion subject:references bimester:references student:references 
 
-rails g model  student:references group:references 
+rails g model HasGroup student:references group:references 
 

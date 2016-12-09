@@ -29,7 +29,13 @@
             <div class="form-group">
                 <label>Grado</label>
                 <%= f.collection_select :grade_id, Grade.all, :id, :grado, {prompt: "Selecciona un Grado"}, {class: "form-control"} %>
-            </div>
+            </div>   
+            <%= fields_for(@group_student) do |gs| %>
+                <div class="form-group">
+                    <label>Alumnos</label><br>
+                    <%= collection_select(:students, :id, @students_all, :id, :nombre, {}, {:multiple => true})%>                    
+                </div>
+            <%end%>
             <div class="card-footer">
                 <%= f.submit 'Guardar', class: "btn btn-sm btn-primary" %>
                 <%= link_to 'Cancelar', groups_path, class: "btn btn-sm btn-danger" %>

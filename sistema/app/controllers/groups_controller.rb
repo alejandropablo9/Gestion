@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /groups
   # GET /groups.json
   def index
@@ -10,12 +10,13 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-      @students = Student.where('group_id = #{:id}')
   end
 
   # GET /groups/new
   def new
-    @group = Group.new    
+    @group = Group.new  
+    @students_all = Student.all
+    @group_student = @group.has_groups.build
   end
 
   # GET /groups/1/edit
@@ -26,7 +27,13 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-
+    
+    params[:students][:id].each do |student|
+        if !student.empty? 
+            @group.has_groups.build(:student_id => student)
+        end
+    end
+      
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
@@ -41,6 +48,8 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
+    @students_all = Student.all
+    @group_student = @group.has_groups.build
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
