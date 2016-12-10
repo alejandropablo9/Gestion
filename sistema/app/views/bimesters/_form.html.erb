@@ -10,18 +10,25 @@
       </ul>
     </div>
   <% end %>
+  <div class="col-sm-6">
+      <div class="card">
+          <div class="card-header">
+            <strong>Bimestre</strong>
+            <small>Formulario</small>
+   </div>
+   <div class="card-block">
+       <div class="form-group">
+         <label>Bimestre*</label>
+         <%= f.text_field :bimestre, class: "form-control", placeholder: "Bimestre" %>
+     </div>
 
-  <div class="field">
-    <%= f.label :bimestre %>
-    <%= f.text_field :bimestre %>
+     <div class="form-group">
+       <label>Periodo</label>
+      <%= f.collection_select :period_id, Period.all, :id, :periodo, {prompt: "Selecciona un Periodo"}, {class: "form-control"} %>
   </div>
 
-  <div class="field">
-    <%= f.label :period_id %>
-    <%= f.text_field :period_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="card-footer">
+    <%= f.submit 'Guardar', class: "btn btn-sm btn-primary" %>
+    <%= link_to 'Cancelar', bimesters_path, class: "btn btn-sm btn-danger" %>
   </div>
 <% end %>

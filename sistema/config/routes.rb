@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   
   resources :students
-  resources :groups
+  resources :groups do
+      get 'ticket/index'
+  end    
   resources :subjects
   resources :grades
   resources :periods
